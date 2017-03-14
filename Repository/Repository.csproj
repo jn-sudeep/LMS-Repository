@@ -105,6 +105,12 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Database Objects\Data Scripts\User.sql" />
+    <Content Include="Database Objects\Table Scripts\01 Book.sql" />
+    <Content Include="Database Objects\Table Scripts\02 Member.sql" />
+    <Content Include="Database Objects\Table Scripts\03 User.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
