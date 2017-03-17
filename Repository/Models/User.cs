@@ -1,28 +1,19 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace Root.Repository.Models
 {
-   public class User : ModelBase
+    public class User : ModelBase
     {
-      #region Class Variables
+        #region Class Properties
 
-      private string _Name;
-      private string _Password;
+        [Required]
+        [MaxLength(15)]
+        public string Name { get; set; }
 
-      #endregion
+        [Required]
+        [MaxLength(15)]
+        public string Password { get; set; }
 
-      #region Class Properties
-
-      public string Name
-      {
-         get { return _Name; }
-         set { _Name = value; }
-      }
-
-      public string Password
-      {
-         get { return _Password; }
-         set { _Password = value; }
-      }
-
-      #endregion
-   }
+        #endregion
+    }
 }
