@@ -10,12 +10,16 @@ namespace Root.Repository.Test
     [TestClass]
     public class LibraryRepositoryTest
     {
+
+        private string _ConnectionString = "Initial Catalog=Library;Data Source=localhost\\orbica;User ID=sa;Password=India123;";
+
         [TestMethod]
         public void GetBookByIDTest()
         {
-            DatabasePackage databasePackage = new DatabasePackage();
+            DatabasePackage databasePackage = new DatabasePackage(_ConnectionString);
             SqlDataReader reader = null;
-            LibraryRepository libraryRepository = new LibraryRepository();
+
+            LibraryRepository libraryRepository = new LibraryRepository(_ConnectionString);
 
             try
             {
@@ -58,12 +62,12 @@ namespace Root.Repository.Test
         [TestMethod]
         public void SaveBookTest()
         {
-            DatabasePackage databasePackage = new DatabasePackage();
+            DatabasePackage databasePackage = new DatabasePackage(_ConnectionString);
             SqlDataReader reader = null;
 
             try
             {
-                LibraryRepository libraryRepository = new LibraryRepository();
+                LibraryRepository libraryRepository = new LibraryRepository(_ConnectionString);
 
                 // Test Add Book
 
@@ -112,10 +116,10 @@ namespace Root.Repository.Test
         [TestMethod]
         public void IssueBookTest()
         {
-            DatabasePackage databasePackage = new DatabasePackage();
+            DatabasePackage databasePackage = new DatabasePackage(_ConnectionString);
             SqlDataReader reader = null;
 
-            LibraryRepository libraryRepository = new LibraryRepository();
+            LibraryRepository libraryRepository = new LibraryRepository(_ConnectionString);
 
             try
             {
@@ -177,10 +181,10 @@ namespace Root.Repository.Test
         [TestMethod]
         public void ReturnBookTest()
         {
-            DatabasePackage databasePackage = new DatabasePackage();
+            DatabasePackage databasePackage = new DatabasePackage(_ConnectionString);
             SqlDataReader reader = null;
 
-            LibraryRepository libraryRepository = new LibraryRepository();
+            LibraryRepository libraryRepository = new LibraryRepository(_ConnectionString);
 
             try
             {

@@ -10,11 +10,26 @@ namespace Root.Repository
 {
     public class LibraryRepository
     {
+        #region Class Variables
+
+        private string _ConnectionString;
+
+        #endregion
+
+        #region Class Constructors
+
+        public LibraryRepository(string connectionString)
+        {
+            _ConnectionString = connectionString;
+        }
+
+        #endregion
+
         #region Book Functions
 
         public Book GetBookByID(int id)
         {
-            DatabasePackage dbPackage = new DatabasePackage();
+            DatabasePackage dbPackage = new DatabasePackage(_ConnectionString);
             SqlDataReader reader = null;
 
             try
@@ -53,7 +68,7 @@ namespace Root.Repository
 
         public void SaveBook(Book book)
         {
-            DatabasePackage dbPackage = new DatabasePackage();
+            DatabasePackage dbPackage = new DatabasePackage(_ConnectionString);
 
             try
             {
@@ -106,7 +121,7 @@ namespace Root.Repository
 
         public void DeleteBook(int id)
         {
-            DatabasePackage dbPackage = new DatabasePackage();
+            DatabasePackage dbPackage = new DatabasePackage(_ConnectionString);
 
             try
             {
@@ -144,7 +159,7 @@ namespace Root.Repository
 
         public void IssueBook(int bookID, int memberID, DateTime issueDate)
         {
-            DatabasePackage dbPackage = new DatabasePackage();
+            DatabasePackage dbPackage = new DatabasePackage(_ConnectionString);
 
             try
             {
@@ -182,7 +197,7 @@ namespace Root.Repository
 
         public void ReturnBook(int bookID)
         {
-            DatabasePackage dbPackage = new DatabasePackage();
+            DatabasePackage dbPackage = new DatabasePackage(_ConnectionString);
 
             try
             {
@@ -220,7 +235,7 @@ namespace Root.Repository
 
         public List<Book> GetBooks()
         {
-            DatabasePackage dbPackage = new DatabasePackage();
+            DatabasePackage dbPackage = new DatabasePackage(_ConnectionString);
             List<Book> books = new List<Book>();
             SqlDataReader reader = null;
 
@@ -264,7 +279,7 @@ namespace Root.Repository
 
         public List<Book> GetAvailableBooks()
         {
-            DatabasePackage dbPackage = new DatabasePackage();
+            DatabasePackage dbPackage = new DatabasePackage(_ConnectionString);
             List<Book> books = new List<Book>();
             SqlDataReader reader = null;
 
@@ -308,7 +323,7 @@ namespace Root.Repository
 
         public List<Book> GetIssuedBooks()
         {
-            DatabasePackage dbPackage = new DatabasePackage();
+            DatabasePackage dbPackage = new DatabasePackage(_ConnectionString);
             List<Book> books = new List<Book>();
             SqlDataReader reader = null;
 
@@ -356,7 +371,7 @@ namespace Root.Repository
 
         public Member GetMemberByID(int id)
         {
-            DatabasePackage dbPackage = new DatabasePackage();
+            DatabasePackage dbPackage = new DatabasePackage(_ConnectionString);
             SqlDataReader reader = null;
 
             try
@@ -393,7 +408,7 @@ namespace Root.Repository
 
         public void SaveMember(Member member)
         {
-            DatabasePackage dbPackage = new DatabasePackage();
+            DatabasePackage dbPackage = new DatabasePackage(_ConnectionString);
             try
             {
                 string sqlQuery = string.Empty;
@@ -446,7 +461,7 @@ namespace Root.Repository
 
         public void DeleteMember(int id)
         {
-            DatabasePackage dbPackage = new DatabasePackage();
+            DatabasePackage dbPackage = new DatabasePackage(_ConnectionString);
             try
             {
                 dbPackage.CommandText = "Delete From Member Where ID = " + id;
@@ -483,7 +498,7 @@ namespace Root.Repository
 
         public List<Member> GetMembers()
         {
-            DatabasePackage dbPackage = new DatabasePackage();
+            DatabasePackage dbPackage = new DatabasePackage(_ConnectionString);
             List<Member> members = new List<Member>();
             SqlDataReader reader = null;
 
@@ -525,7 +540,7 @@ namespace Root.Repository
 
         public List<Member> GetNoBookIssuedMembers()
         {
-            DatabasePackage dbPackage = new DatabasePackage();
+            DatabasePackage dbPackage = new DatabasePackage(_ConnectionString);
             List<Member> members = new List<Member>();
             SqlDataReader reader = null;
 
@@ -571,7 +586,7 @@ namespace Root.Repository
 
         public User GeUserByID(int id)
         {
-            DatabasePackage dbPackage = new DatabasePackage();
+            DatabasePackage dbPackage = new DatabasePackage(_ConnectionString);
             SqlDataReader reader = null;
 
             try
@@ -609,7 +624,7 @@ namespace Root.Repository
 
         public void SaveUser(User user)
         {
-            DatabasePackage dbPackage = new DatabasePackage();
+            DatabasePackage dbPackage = new DatabasePackage(_ConnectionString);
             try
             {
                 string sqlQuery = string.Empty;
@@ -662,7 +677,7 @@ namespace Root.Repository
 
         public void DeleteUser(int id)
         {
-            DatabasePackage dbPackage = new DatabasePackage();
+            DatabasePackage dbPackage = new DatabasePackage(_ConnectionString);
             try
             {
                 dbPackage.CommandText = "Delete From User Where ID = " + id;
@@ -699,7 +714,7 @@ namespace Root.Repository
 
         public List<User> GetUsers()
         {
-            DatabasePackage dbPackage = new DatabasePackage();
+            DatabasePackage dbPackage = new DatabasePackage(_ConnectionString);
             List<User> users = new List<User>();
             SqlDataReader reader = null;
 

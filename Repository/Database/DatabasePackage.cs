@@ -42,10 +42,9 @@ namespace Root.Repository.Database
 
         #region Class Constructors
 
-        public DatabasePackage()
+        public DatabasePackage(string connectionString)
         {
-            //_ConnectionString = "Initial Catalog=Library;Data Source=WL2007537\\SUDEEP;User ID=sa;Password=pass@123;";
-            _ConnectionString = "Initial Catalog=Library;Data Source=localhost\\orbica;User ID=sa;Password=India123;";
+            _ConnectionString = connectionString;
         }
 
         #endregion
